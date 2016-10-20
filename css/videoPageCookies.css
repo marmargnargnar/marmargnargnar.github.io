@@ -66,6 +66,7 @@ li a:hover {
     background-color: #111;
 }
 
+
 .colorSelect {
 	text-align: left;
 	
@@ -86,6 +87,13 @@ li a:hover {
   margin-bottom: 20px;
   margin-top: 20px; 
   }
+  
+  iframe {
+	margin-bottom: -5px;
+	margin-left: 2px; 
+}
+  
+
   
   
 
