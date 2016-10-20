@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+    <head>
+        <title> myPhotoDiary </title>
+        <meta name="description" content="A javascript library for viewing images in a fully full screen.">
+
+        <!-- CSS -->
+        <link href='./css/styles.css' rel='stylesheet'>
+
+        <!-- JS -->
+        <script src='./js/intense.js'></script>
+
+        <!-- FONTS -->
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+
+    	<header>
+    		<div class="logo">Photo Diary</div>
+			
+			<div class = "nav">
+				<ul>
+					<li> <a href = "index.html"> Index </a></li>
+					<li> <a href = "viewImages.html"> Cool Photos </a></li>
+					<li> <a href = "designDocument.html"> Design Document </a></li>
+					<li> <a href = "videoCookies.html"> Maker's Mark Video </a></li>
+				</ul>
+			</div>
+			
+			
+    		<div class="main">
+    			<h1> Click on the images to view full screen</h1>
+				<h2> Enjoy! </h2>
+    		</div>
+    	</header>
+    	<section class="demos">
+    		<!-- Using divs for the demo, for formatting... you can use images if you want!  -->
+    		<div class="demo-image first" data-image="./img/IMG_3790.jpg" data-title="Roy's Peak, Wanaka, NZ" data-caption="A very rough incline, but worth it for the viewz"></div>
+    		<div class="demo-image second" data-image="./img/IMG_0941.jpg" data-title="Moab, Utah" data-caption="The desert is my happy place."></div>
+    		<div class="demo-image third"  data-image="./img/IMG_0719.jpg" data-title="Breckenridge, Colorado" data-caption="Life Lesson: The harder the hike, the better the view"></div>
+			<div class="demo-image fourth"  data-image="./img/IMG_3598.jpg" data-title="Castlepoint, NZ" data-caption="A beautiful view after hiking up to a lighthouse."></div>
+			<div class="demo-image fifth"  data-image="./img/IMG_3905.jpg" data-title="Milford Sound, NZ" data-caption="One of the most astonishing places I have ever been."></div>
+			<div class="demo-image sixth"  data-image="./img/IMG_3727.jpg" data-title="Fiordland National Park, NZ" data-caption="Immersing myself in the ice cold water was amazing after a gnar hike."></div>
+    	</section>
+
+    	<footer>
+    		<h1>Enjoy intensly viewing your photos!</h1>
+    	</footer>
+
+
+		<script>
+			var elements = document.querySelectorAll( '.demo-image' );
+			Intense( elements );
+		</script>
+
+		
+    </body>
+</html>
