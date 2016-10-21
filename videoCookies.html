@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MakersMark</title>
+	<!-- CSS -->
+        <link href='./css/videoPageCookies.css' rel='stylesheet'>
+	<!-- FONTS -->
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<div class= "colorSelect">
+<form onsubmit="return false;" action="">
+<p><select name="color_select" size="1" onchange="return setColor(this, global_name)">
+  <option style="background-color: aqua;" value="aqua">aqua</option>
+  <option style="background-color: aquamarine;" value="aquamarine">aquamarine</option>
+  <option style="background-color: azure;" value="azure">azure</option>
+  <option style="background-color: black; color: white;" value="black">black</option>
+  <option style="background-color: red;" value="red">red</option>
+  <option style="background-color: royalblue;" value="royalblue">royalblue</option>
+  <option style="background-color: salmon;" value="salmon">salmon</option>
+  <option style="background-color: seagreen;" value="seagreen">seagreen </option>
+  <option style="background-color: seashell;" value="seashell">seashell </option>
+  <option style="background-color: silver;" value="silver">silver </option>
+  <option style="background-color: skyblue;" value="skyblue">skyblue</option>
+  <option style="background-color: slateblue;" value="slateblue">slateblue</option>
+  <option style="background-color: slategray;" value="slategray">slategray</option>
+  <option style="background-color: springgreen;" value="springgreen">springgreen</option>
+  <option style="background-color: steelblue;" value="steelblue">steelblue</option>
+  <option style="background-color: tan;" value="tan">tan</option>
+  <option style="background-color: teal;" value="teal">teal</option>
+  <option style="background-color: thistle;" value="thistle">thistle</option>
+  <option style="background-color: tomato;" value="tomato">tomato</option>
+  <option style="background-color: turquoise;" value="turquoise">turquoise</option>
+  <option style="background-color: violet;" value="violet">violet</option>
+  <option style="background-color: wheat;" value="wheat">wheat</option>
+  <option style="background-color: white;" value="white">white</option>
+  <option style="background-color: whitesmoke;" value="whitesmoke">whitesmoke</option>
+  <option style="background-color: yellow;" value="yellow">yellow</option>
+</select>&nbsp;
+
+<input type="button" value="Delete Cookie"
+ onclick="delCookie(global_name); return getColor(color_select, global_name)"></p>
+</form>
+</div>
+
+
+<div class= "logo">Maker's Mark Video</div>
+
+	<div class = "nav">
+				<ul>
+					<li> <a href = "index.html"> Index </a></li>
+					<li> <a href = "viewImages.html"> Cool Photos </a></li>
+					<li> <a href = "designDocument.html"> Design Document </a></li>
+					<li> <a href = "videoCookies.html"> Maker's Mark Video </a></li>
+				</ul>
+		</div>
+
+<div class= "video">	<!--made div in case I wanted to stylize-->
+
+<!--Here is a youtube video example. The formats for youtube are commonly MP4. As of this build, MP4 
+is the preferred video format for web browsers (most compatible). You can also embed videos from mobile devices
+like Android or iOS. The formats for which are typically WebM and .mov, respectively. You can try to use mobile
+video by uploading video format to vid folder in this example, then referencing file from this page-->
+
+
+									<!---my stupid video--------->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XIoepli6kU4" frameborder="0" allowfullscreen=""></iframe>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript">
+<!--//
+var global_name = 'color';
+//
+function getColor(sel, cookie_name) {
+    var cookie_value = getCookie(cookie_name);
+    if (!cookie_value) cookie_value = 'white';
+    document.body.style.backgroundColor = cookie_value;
+    var opt = sel.options;
+    var x, len = sel.length;
+    for (x=0; x<len; x++) {
+        if (opt[x].value == cookie_value) {
+            opt[x].selected = true;
+            break;
+        }
+    }
+    return true;
+}
+getColor(document.forms[0].color_select, global_name);
+//
+function setColor(sel, cookie_name) {
+    var opt = sel.options[sel.selectedIndex].value;
+    var oneDay = 24 * 60 * 60 * 1000;
+    var oneYear = 365 * oneDay;
+    var expDate = new Date();
+    expDate.setTime(expDate.getTime() + oneYear);
+    setCookie(cookie_name, opt, expDate);
+    return getColor(sel, cookie_name);
+}
+// ---------------------------------------- //
+function getCookie(name) {
+  var arg = name + "=";
+  var alen = arg.length;
+  var clen = document.cookie.length;
+  var i = 0;
+  while (i < clen) {
+    var j = i + alen;
+    if (document.cookie.substring(i, j) == arg)
+      return getCookieVal (j);
+    i = document.cookie.indexOf(" ", i) + 1;
+    if (i == 0) break;
+  }
+  return null;
+}
+function getCookieVal(offset) {
+  var endstr = document.cookie.indexOf (";", offset);
+  if (endstr == -1)
+    endstr = document.cookie.length;
+  return unescape(document.cookie.substring(offset, endstr));
+}
+function setCookie(name, value) {
+  var argv = setCookie.arguments;
+  var argc = setCookie.arguments.length;
+  var expires = (argc > 2) ? argv[2] : null;
+  var path = (argc > 3) ? argv[3] : null;
+  var domain = (argc > 4) ? argv[4] : null;
+  var secure = (argc > 5) ? argv[5] : false;
+  document.cookie = name + "=" + escape (value) + 
+     ((expires == null) ? "" : ("; expires=" + expires.toGMTString())) + 
+     ((path == null) ? "" : ("; path=" + path)) +  
+     ((domain == null) ? "" : ("; domain=" + domain)) +    
+     ((secure == true) ? "; secure" : "");
+}
+function delCookie(name) {
+  exp = new Date();
+  exp.setTime(exp.getTime() - (24*60*60*1000));
+  var cval = getCookie(name);
+  cval = (cval == null) ? "" : cval;
+  document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+}
+
+</script>
+
+</body>
+</html>
